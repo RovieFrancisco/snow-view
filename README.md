@@ -10,3 +10,13 @@ This is a falling Snow Flakes animation in which you are free to customize the t
 Below are example screenshots on how SnowView animation looks like.
 
 ## Start Up
+![Screenshot_20210116-173438](https://user-images.githubusercontent.com/40444648/104808739-37e84280-5823-11eb-8a19-7af717994a34.png)
+
+## Default Snow
+![Screenshot_20210116-173447](https://user-images.githubusercontent.com/40444648/104808758-4afb1280-5823-11eb-974f-5a6cc5fdc352.png)
+
+## On Image Pick
+![Screenshot_20210116-173453](https://user-images.githubusercontent.com/40444648/104808769-5bab8880-5823-11eb-85b8-44e9914bfe48.png)
+
+## Customized Snow
+![Screenshot_20210116-173506](https://user-images.githubusercontent.com/40444648/104808775-69f9a480-5823-11eb-984f-0325486a9f24.png)
