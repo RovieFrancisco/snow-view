@@ -13,10 +13,10 @@ class SnowFlake {
   private static final float HALF_PI = (float) Math.PI / 2f;
   private static final float ANGLE_SEED = 25f;
   private static final float ANGLE_DIVISOR = 10000f;
-  private static final float INCREMENT_LOWER = 2.0f; //0.5
-  private static final float INCREMENT_UPPER = 4.0f; //1.5
+  private static final float INCREMENT_LOWER = 2.0f;
+  private static final float INCREMENT_UPPER = 4.0f;
   private static final float FLAKE_SIZE_LOWER = 5f;
-  private static final float FLAKE_SIZE_UPPER = 40f; //17
+  private static final float FLAKE_SIZE_UPPER = 40f;
 
   private final Random random;
   private final PointF position;
@@ -33,8 +33,8 @@ class SnowFlake {
   public static SnowFlake create(Bitmap snowBitmap, int width, int height, Paint paint) {
     Random random = new Random();
     float flakeSize = random.getRandom(FLAKE_SIZE_LOWER, FLAKE_SIZE_UPPER);
-    float x = (float) random.getRandom(width);//(flakeSize, width - flakeSize);
-    float y = (float) random.getRandom(height);//(-flakeSize, height + flakeSize);
+    float x = (float) random.getRandom(width);
+    float y = (float) random.getRandom(height);
     PointF position = new PointF(x, y);
     float angle = random.getRandom(ANGLE_SEED) / ANGLE_SEED * ANGE_RANGE + HALF_PI - HALF_ANGLE_RANGE;
     float increment = random.getRandom(INCREMENT_LOWER, INCREMENT_UPPER);
@@ -50,11 +50,11 @@ class SnowFlake {
     this.flakeSize = flakeSize;
     this.paint = paint;
     this.snowBitmap = snowBitmap;
-    //boolean randomBoolean = random.getRandomBoolean();
+    
     if (random.getRandomBoolean()) {
-      paintAlpha = 50; //51
+      paintAlpha = 50;
     } else {
-      paintAlpha = random.getRandom(255); //128
+      paintAlpha = random.getRandom(255);
     }
   }
 
@@ -76,14 +76,14 @@ class SnowFlake {
   private boolean isInside(int width, int height) {
     float x = position.x;
     float y = position.y;
-   // return x >= -flakeSize - 1 && x + flakeSize <= width && y >= -flakeSize - 1 && y - flakeSize < height;
+    
     return (x + flakeSize > 1) && (x - flakeSize < width) && (y - flakeSize < height) && (y >= -flakeSize - 1);
   }
 
   private void reset(int width) {
     position.x = random.getRandom(width);
     position.y = (int) (-flakeSize - 1);
-   // angle = random.getRandom(ANGLE_SEED) / ANGLE_SEED * ANGE_RANGE + HALF_PI - HALF_ANGLE_RANGE;
+    
     angle = (((random.getRandom(ANGLE_SEED) / ANGLE_SEED) * ANGE_RANGE) + HALF_PI) - HALF_ANGLE_RANGE;
   }
 
@@ -104,11 +104,6 @@ class SnowFlake {
       matrix.postTranslate(position.x, position.y);
       paint.setAlpha(paintAlpha);
       canvas.drawBitmap(snowBitmap, matrix, paint);
-/**
-      canvas.save();
-      canvas.drawBitmap(snowBitmap, null, desRect, paint);
-      canvas.restore();
-**/
     } else {
       canvas.drawCircle(position.x, position.y, flakeSize, paint);
     }
